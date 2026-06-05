@@ -510,32 +510,39 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mostrar Feedback de carga
         showFeedback('Enviando tu mensaje...', 'success');
         
-        // Preparar datos para enviar a Netlify Forms
-        const formData = new FormData(contactForm);
-        
-        // Intentar enviar mediante AJAX a Netlify
-        fetch('/', {
+        // Intentar enviar mediante AJAX a FormSubmit (ideal para entornos estáticos como GitHub Pages)
+        fetch('https://formsubmit.co/ajax/uricasmel@ieee.org', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                subject: subject,
+                message: message
+            })
         })
         .then(response => {
             if (response.ok) {
-                showFeedback('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
-                contactForm.reset();
-                charCounter.textContent = '0 / 1000 caracteres';
-                
-                // Ocultar mensaje de éxito tras 5 segundos
-                setTimeout(() => {
-                    formFeedback.style.display = 'none';
-                }, 5000);
+                return response.json();
             } else {
-                throw new Error('Error al enviar a Netlify');
+                throw new Error('Error al enviar a FormSubmit');
             }
         })
+        .then(data => {
+            showFeedback('¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+            contactForm.reset();
+            charCounter.textContent = '0 / 1000 caracteres';
+            
+            // Ocultar mensaje de éxito tras 5 segundos
+            setTimeout(() => {
+                formFeedback.style.display = 'none';
+            }, 5000);
+        })
         .catch(error => {
-            console.warn('Netlify submission failed, falling back to mailto:', error);
-            // Fallback a mailto si falla o no estamos en Netlify
+            console.warn('FormSubmit submission failed, falling back to mailto:', error);
+            // Fallback a mailto si falla o no hay conexión
             showFeedback('Preparando tu cliente de correo para enviar...', 'success');
             
             setTimeout(() => {
