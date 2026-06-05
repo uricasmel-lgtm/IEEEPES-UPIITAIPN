@@ -1,8 +1,3 @@
-import colorLogo from '../images/logos/logo_color.png';
-import whiteLogo from '../images/logos/logo_white.png';
-import heroColorLogo from '../images/logos/Segunda_imagen.png';
-import heroWhiteLogo from '../images/logos/Segunda_imagen_blanco.png';
-
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================================================
@@ -14,11 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.getElementById('nav-menu');
     const navItems = document.querySelectorAll('.nav-item');
     const mainHeader = document.querySelector('.main-header');
-    
-    // Logos
-    const navLogo = document.getElementById('nav-logo');
-    const heroLogo = document.getElementById('hero-logo');
-    const footerLogo = document.getElementById('footer-logo');
     
     // Filtros de Eventos
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -40,31 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        2. TEMA CLARO / OSCURO (THEME TOGGLE)
        ========================================================================== */
-    const paths = {
-        colorLogo: colorLogo,
-        whiteLogo: whiteLogo,
-        heroColorLogo: heroColorLogo,
-        heroWhiteLogo: heroWhiteLogo
-    };
-
-    function updateLogos(theme) {
-        const logoSrc = theme === 'dark' ? paths.whiteLogo : paths.colorLogo;
-        const heroLogoSrc = theme === 'dark' ? paths.heroWhiteLogo : paths.heroColorLogo;
-        if (navLogo) navLogo.src = logoSrc;
-        if (heroLogo) heroLogo.src = heroLogoSrc;
-        if (footerLogo) footerLogo.src = logoSrc;
-    }
-
     function setTheme(theme) {
         if (theme === 'dark') {
             body.classList.add('dark-theme');
             body.classList.remove('light-theme');
-            updateLogos('dark');
             localStorage.setItem('theme', 'dark');
         } else {
             body.classList.remove('dark-theme');
             body.classList.add('light-theme');
-            updateLogos('light');
             localStorage.setItem('theme', 'light');
         }
     }

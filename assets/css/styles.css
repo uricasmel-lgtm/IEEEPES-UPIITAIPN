@@ -2143,3 +2143,17 @@ body.dark-theme .metric-val {
         grid-template-columns: 1fr;
     }
 }
+
+/* Control de visibilidad de logos según el tema */
+body.light-theme .logo-dark-only {
+    display: none !important;
+}
+body.dark-theme .logo-light-only {
+    display: none !important;
+}
+body.light-theme .logo-light-only {
+    display: block !important;
+}
+body.dark-theme .logo-dark-only {
+    display: block !important;
+}
