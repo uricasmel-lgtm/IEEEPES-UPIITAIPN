@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         los_humeros: {
-            title: 'Visita Técnica a la Planta Geotérmica Los Humeros',
+            title: 'Visita Técnica a la Planta Geotérmica Los Azufres',
             category: 'Por Realizar',
             badgeClass: 'visita',
             date: 'Octubre 2026',
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             category: 'Por Realizar',
             badgeClass: 'panel',
             date: 'Octubre 2026',
-            image: 'assets/images/events/event_IPEC_2026.jpeg',
+            image: 'assets/images/events/event_IPEC_2026.jpg',
             description: `
                 <p>El Congreso Estudiantil insignia del capítulo PES UPIITA se renueva en su edición 2026 con un enfoque exclusivo en la **Electromovilidad y Transporte Eléctrico**.</p>
                 <p>Tendremos tres días de conferencias magistrales, exposiciones de prototipos y paneles con expertos de la industria automotriz y del sector de distribución eléctrica. Se abordará la infraestructura de cargadores inteligentes (EVSE), la degradación de baterías de litio y el impacto que tendrá la carga masiva de vehículos eléctricos en la calidad de la energía y en las redes inteligentes.</p>
