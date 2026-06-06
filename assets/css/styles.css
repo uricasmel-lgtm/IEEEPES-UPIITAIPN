@@ -2154,7 +2154,7 @@ body.dark-theme .metric-val {
 
 .multimedia-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
@@ -2225,12 +2225,6 @@ body.dark-theme .multimedia-card:hover {
     justify-content: center;
 }
 
-@media (max-width: 1024px) {
-    .multimedia-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-}
 
 @media (max-width: 768px) {
     .multimedia-grid {
